@@ -43,11 +43,14 @@ const createPokemon = (pokemon) => {
   const pokemonId = pokemon.id.toString().padStart(3, "0");
   const pokemonName =
     pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
-  const pokemonType = pokemon.types[0].type.name;
+  const pokemonType =
+    pokemon.types[0].type.name.charAt(0).toUpperCase() +
+    pokemon.types[0].type.name.slice(1);
+  const pokemonTypeSecond = pokemon.types[0].type.name;
   const pokemonWeight = (pokemon.weight / 10).toFixed(1);
   const pokemonImage = pokemon.sprites.other["official-artwork"].front_default;
 
-  const color = colors[pokemonType] || colors.normal;
+  const color = colors[pokemonTypeSecond] || colors.normal;
   div.style.backgroundColor = color;
 
   const pokeInnerHTML = `
